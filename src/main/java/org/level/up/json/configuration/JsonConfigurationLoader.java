@@ -25,13 +25,11 @@ class JsonConfigurationLoader {
     static Configuration loadConfiguration() {
         try {
             ClassLoader classLoader = JsonConfiguration.class.getClassLoader();
-
             // If we couldn't find class, then throw exception
             URI uri = Optional.ofNullable(classLoader.getResource(CONFIGURATION_FILE_NAME))
                     .orElseThrow(() -> new RuntimeException("Couldn't find json.properties file"))
                     .toURI();
-
-            File configurationFile = new File(uri);
+            File configurationFile = new File("C:\\Users\\Sam\\Documents\\properties\\json.properties");
             return readConfiguration(configurationFile);
 
         } catch (IOException | URISyntaxException exc) {

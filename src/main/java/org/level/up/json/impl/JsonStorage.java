@@ -19,7 +19,6 @@ public class JsonStorage {
 
     public static Map<String, JsonSerializer> serializers;
     public static Map<String, JsonDeserializer> deserializers;
-    public static List <Class> allObjects;
 
     static {
         try {
@@ -31,7 +30,6 @@ public class JsonStorage {
 
     private static void loadClasses() throws IOException {
         Collection<Class<?>> classes = scanDirectory();
-
         serializers = createMap(classes, JsonSerializer.class);
         deserializers = createMap(classes, JsonDeserializer.class);
     }
